@@ -44,8 +44,17 @@ final class NFXHTTPModelManager: NSObject
 
         let searchPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: predicates)
         
-        let array = (self.models as NSArray).filtered(using: searchPredicate)
+        let array = (self.models as NSArray).filtered(using: searchPredicate) as! [NFXHTTPModel]
         
-        return array as! [NFXHTTPModel]
+        let excludedTags = ["apptentive"]
+        
+        return array.filter({ model in
+            for tag in excludedTags {
+                if model.requestURL?.contains(tag) ?? false {
+                    return false
+                }
+            }
+            return true
+        })
     }
 }
