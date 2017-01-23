@@ -46,7 +46,7 @@ final class NFXHTTPModelManager: NSObject
         
         let array = (self.models as NSArray).filtered(using: searchPredicate) as! [NFXHTTPModel]
         
-        let excludedTags = ["apptentive"]
+        let excludedTags = ["apptentive", "helpshift"]
         
         return array.filter({ model in
             for tag in excludedTags {
