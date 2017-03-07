@@ -18,7 +18,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class NFXHTTPModel: NSObject
+public class NFXHTTPModel: NSObject
 {
     var requestURL: String?
     var requestMethod: String?
@@ -45,7 +45,7 @@ class NFXHTTPModel: NSObject
     
     var noResponse: Bool = true
     
-    func saveRequest(_ request: URLRequest)
+    public func saveRequest(_ request: URLRequest)
     {
         self.requestDate = Date()
         self.requestTime = getTimeFromDate(self.requestDate!)
@@ -63,7 +63,7 @@ class NFXHTTPModel: NSObject
         self.responseDate = Date()
     }
     
-    func saveResponse(_ response: URLResponse, data: Data)
+    public func saveResponse(_ response: URLResponse, data: Data)
     {
         self.noResponse = false
         
